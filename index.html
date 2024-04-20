@@ -10,17 +10,45 @@
 
 </head>
 <body>
-    <h1>TV Series</h1>
-    <table class="table table-striped" id="tablaSeries">
-        <thead class="thead-dark">
-            <tr>
-                <th>#</th>
-                <th>Name</th>
-                <th>Channel</th>
-                <th>Seasons</th>
-            </tr>
-        </thead>
-    </table>
-    <table class="table table-striped" id="tablaPromedio"></table>
+    
+    <!-- As a heading -->
+    <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <span class="navbar-brand mb-0 h1"><h1>TV Series</h1></span>
+    </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <table class="table table-striped" id="tablaSeries">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Channel</th>
+                            <th>Seasons</th>
+                        </tr>
+                    </thead>
+                </table>
+                <table class="table table-striped" id="tablaPromedio"></table>
+            </div>
+
+            <!--Aca comienza la card-->
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                  <img src="" class="card-img-top" id="cardImage" alt="Card image">
+                  <div class="card-body">
+                    <h5 class="card-title" id="cardTitle">Card title</h5>
+                    <p class="card-text" id="cardDescription">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a id="cardLink" href="#" class="btn btn-primary">More Info</a>
+                  </div>
+                </div>
+              </div>
+
+        </div>
+
+
+    </div>
+    
 </body>
 </html>

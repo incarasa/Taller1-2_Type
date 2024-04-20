@@ -5,15 +5,30 @@ mostrarSeries(series);
 mostrarPromedioTemporadas(series);
 function mostrarSeries(series) {
     var seriesTBody = document.createElement("tbody");
+    var _loop_1 = function (serie) {
+        var trElement = document.createElement("tr");
+        var tdIdElement = document.createElement("td");
+        var tdNameElement = document.createElement("td");
+        var tdChannelElement = document.createElement("td");
+        var tdSeasonsElement = document.createElement("td");
+        tdIdElement.innerText = serie.id.toString();
+        tdNameElement.innerText = serie.name;
+        tdChannelElement.innerText = serie.channel;
+        tdSeasonsElement.innerText = serie.seasons.toString();
+        tdNameElement.addEventListener('click', function () {
+            updateCard(serie);
+        });
+        trElement.appendChild(tdIdElement);
+        trElement.appendChild(tdNameElement);
+        trElement.appendChild(tdChannelElement);
+        trElement.appendChild(tdSeasonsElement);
+        seriesTBody.appendChild(trElement);
+    };
     for (var _i = 0, series_1 = series; _i < series_1.length; _i++) {
         var serie = series_1[_i];
-        var trElement = document.createElement("tr");
-        trElement.innerHTML =
-            "<td>".concat(serie.id, "</td>\n             <td>").concat(serie.name, "</td>\n             <td>").concat(serie.channel, "</td>\n             <td>").concat(serie.seasons, "</td>");
-        seriesTBody.appendChild(trElement);
+        _loop_1(serie);
     }
     seriesTable.appendChild(seriesTBody);
-    console.log("PROCESO COMPLETADO CON EXITO");
 }
 function darPromedioTemporadas(series) {
     var totalTemporadas = 0;
@@ -28,4 +43,16 @@ function mostrarPromedioTemporadas(series) {
     var trElement = document.createElement("tr");
     trElement.innerHTML = "<td><b>Season average: ".concat(promedioTemporadas, "</b></td>");
     promedioTable.appendChild(trElement);
+}
+function updateCard(series) {
+    var titleElement = document.getElementById('cardTitle');
+    var descriptionElement = document.getElementById('cardDescription');
+    var imageElement = document.getElementById('cardImage');
+    var linkElement = document.getElementById('cardLink');
+    titleElement.innerText = series.name;
+    descriptionElement.innerText = series.plot;
+    imageElement.src = series.poster;
+    imageElement.alt = "Image of ".concat(series.name); // Accessibility for screen readers
+    linkElement.href = series.poster;
+    linkElement.innerText = "Learn more about ".concat(series.name);
 }
